@@ -1,0 +1,386 @@
+/* =============================================
+   Register Page
+   ============================================= */
+.register-page {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  padding-top: var(--nav-height);
+}
+
+/* --- Split background --- */
+.register-page__bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  display: flex;
+}
+
+.register-page__bg-left {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  /* Teal gradient for register — distinct from SignIn red */
+  background: linear-gradient(145deg, var(--color-teal-d) 0%, var(--color-teal) 60%, #0a7a6e 100%);
+}
+
+/* Hospital photo overlay — same treatment as hero */
+.register-page__bg-img {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900&auto=format&fit=crop&q=80');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.18;
+  mix-blend-mode: luminosity;
+}
+
+/* Decorative blobs */
+.register-page__blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.register-page__blob--1 {
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(255,255,255,.12) 0%, transparent 70%);
+  top: -100px;
+  right: -80px;
+}
+.register-page__blob--2 {
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(255,255,255,.08) 0%, transparent 70%);
+  bottom: 60px;
+  left: -60px;
+}
+
+.register-page__bg-right {
+  flex: 1;
+  background: var(--color-surface);
+}
+
+/* --- Wrapper grid --- */
+.register-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  min-height: calc(100vh - var(--nav-height));
+}
+
+/* ---- Brand panel ---- */
+.register-brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 56px 48px 56px 40px;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.register-brand__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
+  text-decoration: none;
+  transition: opacity var(--transition);
+}
+.register-brand__logo:hover { opacity: 0.8; }
+
+.register-brand__logo-img {
+  height: 38px;
+  width: auto;
+  mix-blend-mode: screen;
+  filter: brightness(1.2);
+}
+
+.register-brand__logo-text {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.025em;
+}
+
+.register-brand__headline {
+  font-size: clamp(1.9rem, 3vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin-bottom: 14px;
+}
+
+.register-brand__sub {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,.68);
+  line-height: 1.7;
+  max-width: 360px;
+  margin-bottom: 36px;
+}
+
+/* Benefit list */
+.register-brand__benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.register-brand__benefit {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,.82);
+  font-weight: 500;
+}
+
+.register-brand__benefit-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.7);
+  flex-shrink: 0;
+}
+
+/* ---- Form panel ---- */
+.register-form-panel {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 40px 40px 48px;
+  overflow-y: auto;
+}
+
+.register-form-card {
+  width: 100%;
+  max-width: 440px;
+  padding-top: 8px;
+  padding-bottom: 32px;
+}
+
+.register-form-card__header {
+  margin-bottom: 24px;
+}
+
+.register-form-card__title {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--color-text);
+  letter-spacing: -0.025em;
+  margin-bottom: 5px;
+}
+
+.register-form-card__sub {
+  font-size: 0.88rem;
+  color: var(--color-text-3);
+}
+
+/* ---- Role toggle ---- */
+.register-role {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 22px;
+  background: var(--color-surface-2);
+  border-radius: var(--radius-md);
+  padding: 4px;
+}
+
+.register-role__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 9px 12px;
+  border-radius: 9px;
+  border: none;
+  background: transparent;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-3);
+  cursor: pointer;
+  transition: all var(--transition);
+  font-family: var(--font-family);
+}
+.register-role__btn--active {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ---- Form fields ---- */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.register-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.register-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.register-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-2);
+}
+
+.register-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.register-input-icon {
+  position: absolute;
+  left: 12px;
+  color: var(--color-text-3);
+  pointer-events: none;
+}
+
+.register-input {
+  width: 100%;
+  padding: 10px 40px 10px 36px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-family: var(--font-family);
+  color: var(--color-text);
+  background: var(--color-bg);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.register-input:focus {
+  outline: none;
+  border-color: var(--color-teal);
+  box-shadow: 0 0 0 3px rgba(13,110,110,.1);
+}
+.register-input::placeholder { color: var(--color-text-3); }
+
+.register-toggle-pw {
+  position: absolute;
+  right: 11px;
+  background: none;
+  border: none;
+  color: var(--color-text-3);
+  cursor: pointer;
+  display: flex;
+  padding: 3px;
+  border-radius: 4px;
+  transition: color var(--transition);
+}
+.register-toggle-pw:hover { color: var(--color-text); }
+
+/* ---- Blood type grid ---- */
+.register-blood-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.register-blood-btn {
+  padding: 9px 6px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-bg);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-text-2);
+  cursor: pointer;
+  font-family: var(--font-family);
+  transition: all var(--transition);
+}
+.register-blood-btn:hover {
+  border-color: var(--color-teal);
+  color: var(--color-teal);
+}
+.register-blood-btn--active {
+  border-color: var(--color-teal);
+  background: rgba(13,110,110,.09);
+  color: var(--color-teal);
+}
+
+/* ---- Terms checkbox ---- */
+.register-terms {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 0.8rem;
+  color: var(--color-text-3);
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.register-terms-check {
+  width: 15px;
+  height: 15px;
+  margin-top: 2px;
+  accent-color: var(--color-teal);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.register-terms-link {
+  color: var(--color-teal);
+  font-weight: 600;
+  transition: opacity var(--transition);
+}
+.register-terms-link:hover { opacity: 0.7; text-decoration: underline; }
+
+/* ---- Submit ---- */
+.register-submit {
+  width: 100%;
+  justify-content: center;
+  padding: 13px;
+  font-size: 0.95rem;
+  /* Teal for Register, distinct from SignIn's red */
+  background: var(--color-teal);
+  box-shadow: 0 4px 14px rgba(13,110,110,.3);
+}
+.register-submit:hover {
+  background: var(--color-teal-d);
+  box-shadow: 0 6px 20px rgba(13,110,110,.4);
+}
+
+/* ---- Sign in link ---- */
+.register-signin {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--color-text-3);
+}
+
+.register-signin-link {
+  color: var(--color-teal);
+  font-weight: 600;
+  transition: opacity var(--transition);
+}
+.register-signin-link:hover { opacity: 0.75; text-decoration: underline; }
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .register-wrapper        { grid-template-columns: 1fr; }
+  .register-page__bg-left  { display: none; }
+  .register-brand          { display: none; }
+  .register-form-panel     { padding: 36px 20px; }
+  .register-page__bg-right { flex: 1; }
+}
+
+@media (max-width: 420px) {
+  .register-row            { grid-template-columns: 1fr; }
+  .register-blood-grid     { grid-template-columns: repeat(4, 1fr); }
+}

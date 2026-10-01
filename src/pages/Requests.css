@@ -1,0 +1,230 @@
+/* =============================================
+   Requests Page
+   ============================================= */
+.requests-page {
+  min-height: 100vh;
+  background: var(--color-surface);
+}
+
+.requests-page__title {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.requests-page__desc {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.requests-page__filter-btn {
+  border-radius: 0 10px 10px 0;
+  padding: 12px 20px;
+  flex-shrink: 0;
+}
+
+.requests-page__header {
+  background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-3) 100%);
+  padding: calc(var(--nav-height) + 40px) 0 48px;
+}
+
+.requests-page__search {
+  display: flex;
+  align-items: center;
+  margin-top: 24px;
+  background: rgba(255,255,255,.1);
+  border: 1.5px solid rgba(255,255,255,.2);
+  border-radius: 12px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  max-width: 600px;
+}
+
+.requests-page__search-icon {
+  margin: 0 14px;
+  color: rgba(255,255,255,.5);
+  flex-shrink: 0;
+}
+
+.requests-page__search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 0.9rem;
+  font-family: var(--font-family);
+  padding: 13px 0;
+}
+.requests-page__search-input::placeholder { color: rgba(255,255,255,.4); }
+
+/* Grid */
+.requests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Card */
+.request-card { padding: 24px; }
+
+.request-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.request-card__blood-type {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--color-primary);
+  letter-spacing: -0.02em;
+  background: rgba(192,57,43,.08);
+  padding: 6px 16px;
+  border-radius: var(--radius-md);
+}
+
+.request-card__urgency {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.02em;
+}
+.request-card__urgency--critical {
+  background: rgba(192,57,43,.12);
+  color: var(--color-primary);
+  border: 1px solid rgba(192,57,43,.2);
+}
+.request-card__urgency--urgent {
+  background: rgba(230,126,34,.12);
+  color: #E67E22;
+  border: 1px solid rgba(230,126,34,.2);
+}
+.request-card__urgency--standard {
+  background: rgba(39,174,96,.1);
+  color: #27AE60;
+  border: 1px solid rgba(39,174,96,.2);
+}
+
+.request-card__hospital {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 10px;
+}
+
+.request-card__meta {
+  display: flex;
+  gap: 14px;
+  font-size: 0.8rem;
+  color: var(--color-text-3);
+  margin-bottom: 12px;
+}
+.request-card__meta-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.request-card__hospital {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 10px;
+}
+
+.request-card__units {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-teal);
+  margin-bottom: 16px;
+  background: rgba(13,110,110,.08);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  width: fit-content;
+}
+
+.request-card__btn { width: 100%; justify-content: center; margin-top: 16px; }
+
+/* ---- Blood type filter chips ---- */
+.requests-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.requests-filter-chip {
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-bg);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-2);
+  cursor: pointer;
+  font-family: var(--font-family);
+  transition: all var(--transition);
+}
+.requests-filter-chip:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+.requests-filter-chip--active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(192,57,43,.25);
+}
+
+/* ---- Empty state ---- */
+.requests-empty {
+  text-align: center;
+  padding: 72px 24px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.requests-empty__icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(192,57,43,.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  color: var(--color-primary);
+}
+
+.requests-empty__title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 12px;
+}
+
+.requests-empty__sub {
+  font-size: 0.9rem;
+  color: var(--color-text-3);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.requests-empty__actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+

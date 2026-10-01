@@ -1,0 +1,80 @@
+/* =============================================
+   Stats Bar
+   ============================================= */
+.statsbar {
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding: 36px 0;
+}
+
+.statsbar__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+.statsbar__item {
+  text-align: center;
+  padding: 16px 24px;
+  position: relative;
+}
+
+.statsbar__item + .statsbar__item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background: var(--color-border);
+}
+
+.statsbar__value {
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  font-weight: 800;
+  color: var(--color-text);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.statsbar__value--teal {
+  color: var(--color-teal);
+}
+
+/* Empty / API-not-connected state */
+.statsbar__value--empty {
+  color: var(--color-text-3);
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  letter-spacing: 0.04em;
+}
+
+.statsbar__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  flex-shrink: 0;
+  animation: pulse-dot 1.5s infinite;
+}
+
+.statsbar__label {
+  font-size: 0.8rem;
+  color: var(--color-text-3);
+  margin-top: 6px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 640px) {
+  .statsbar__grid { grid-template-columns: repeat(2, 1fr); }
+  .statsbar__item:nth-child(3)::before { display: none; }
+  .statsbar__item:nth-child(2)::before { display: none; }
+  .statsbar__item:nth-child(3) { border-top: 1px solid var(--color-border); }
+  .statsbar__item:nth-child(4) { border-top: 1px solid var(--color-border); }
+}

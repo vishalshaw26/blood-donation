@@ -1,0 +1,56 @@
+/* =============================================
+   How It Works Page
+   ============================================= */
+.hiw-page { min-height: 100vh; }
+
+.hiw-page__header {
+  background: linear-gradient(135deg, var(--color-teal-d) 0%, var(--color-teal) 100%);
+  padding: calc(var(--nav-height) + 40px) 0 48px;
+}
+
+/* FAQ */
+.faq-section { background: var(--color-bg); }
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+  gap: 16px;
+}
+
+.faq-item { padding: 24px 28px; }
+.faq-item__q {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 10px;
+}
+.faq-item__a {
+  font-size: 0.875rem;
+  color: var(--color-text-3);
+  line-height: 1.7;
+}
+
+/* CTA Banner */
+.hiw-cta {
+  background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-3) 100%);
+}
+.hiw-cta__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.hiw-cta__title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+.hiw-cta__sub { font-size: 0.9rem; color: rgba(255,255,255,.6); margin-top: 6px; }
+.hiw-cta__btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+@media (max-width: 640px) {
+  .faq-grid { grid-template-columns: 1fr; }
+  .hiw-cta__inner { flex-direction: column; align-items: flex-start; }
+}

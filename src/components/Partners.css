@@ -1,0 +1,59 @@
+/* =============================================
+   Partners / Trust Bar
+   ============================================= */
+.partners {
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+}
+
+.partners__label {
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-text-3);
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.partners__grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.partners__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-2);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: default;
+  transition: all var(--transition);
+}
+
+.partners__item:hover {
+  border-color: var(--color-teal);
+  color: var(--color-teal);
+  background: rgba(13,110,110,.05);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.partners__item-icon {
+  display: flex;
+  align-items: center;
+  opacity: 0.7;
+}
+
+@media (max-width: 480px) {
+  .partners__grid { gap: 8px; }
+  .partners__item { padding: 8px 16px; font-size: 0.8rem; }
+}

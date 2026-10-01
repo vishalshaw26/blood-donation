@@ -1,0 +1,132 @@
+/* =============================================
+   How It Works Section
+   ============================================= */
+.hiw {
+  background: var(--color-surface);
+}
+
+.hiw__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+/* Card */
+.hiw__card {
+  padding: 32px;
+}
+
+.hiw__card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.hiw__card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hiw__card-icon--donor {
+  background: rgba(13,110,110,.1);
+  color: var(--color-teal);
+}
+
+.hiw__card-icon--recipient {
+  background: rgba(192,57,43,.1);
+  color: var(--color-primary);
+}
+
+.hiw__card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* Steps */
+.hiw__steps {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.hiw__step {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.hiw__step-num {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.hiw__step-num--donor {
+  background: rgba(13,110,110,.12);
+  color: var(--color-teal);
+}
+
+.hiw__step-num--recipient {
+  background: rgba(192,57,43,.12);
+  color: var(--color-primary);
+}
+
+.hiw__step-body { flex: 1; }
+
+.hiw__step-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+
+.hiw__step-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hiw__step-icon--donor {
+  background: rgba(13,110,110,.1);
+  color: var(--color-teal);
+}
+
+.hiw__step-icon--recipient {
+  background: rgba(192,57,43,.1);
+  color: var(--color-primary);
+}
+
+.hiw__step-desc {
+  font-size: 0.875rem;
+  color: var(--color-text-3);
+  line-height: 1.65;
+  padding-left: 36px;
+}
+
+@media (max-width: 768px) {
+  .hiw__grid { grid-template-columns: 1fr; }
+  .hiw__card { padding: 24px; }
+}

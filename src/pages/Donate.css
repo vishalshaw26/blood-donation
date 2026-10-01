@@ -1,0 +1,127 @@
+/* =============================================
+   Donate Page
+   ============================================= */
+.donate-page { min-height: 100vh; background: var(--color-surface); }
+
+.donate-page__header {
+  background: linear-gradient(135deg, var(--color-primary-d) 0%, var(--color-primary) 100%);
+  padding: calc(var(--nav-height) + 40px) 0 48px;
+}
+
+.donate-page__badge { margin-bottom: 16px; }
+
+/* Layout */
+.donate-layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 28px;
+  align-items: start;
+}
+
+/* Form Card */
+.donate-form { padding: 36px; }
+.donate-form__title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+.donate-form__sub { color: var(--color-text-3); font-size: 0.875rem; margin-bottom: 28px; }
+
+.donate-form__form { display: flex; flex-direction: column; gap: 20px; }
+
+/* Form elements */
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-label { font-size: 0.82rem; font-weight: 600; color: var(--color-text-2); }
+
+.form-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.form-input-icon {
+  position: absolute;
+  left: 12px;
+  color: var(--color-text-3);
+  pointer-events: none;
+}
+.form-input {
+  width: 100%;
+  padding: 11px 14px 11px 38px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-family: var(--font-family);
+  color: var(--color-text);
+  background: var(--color-bg);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-teal);
+  box-shadow: 0 0 0 3px rgba(13,110,110,.1);
+}
+.form-input::placeholder { color: var(--color-text-3); }
+
+/* Blood type grid */
+.blood-type-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.blood-type-option { cursor: pointer; }
+.blood-type-option input { display: none; }
+.blood-type-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-border);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-text-2);
+  transition: all var(--transition);
+}
+.blood-type-option input:checked + .blood-type-label {
+  border-color: var(--color-primary);
+  background: rgba(192,57,43,.08);
+  color: var(--color-primary);
+}
+.blood-type-label:hover { border-color: var(--color-primary); color: var(--color-primary); }
+
+.donate-form__submit { width: 100%; justify-content: center; padding: 14px; font-size: 1rem; margin-top: 4px; }
+
+/* Info sidebar */
+.donate-info { display: flex; flex-direction: column; gap: 20px; }
+.donate-info__card { padding: 24px; }
+
+.donate-info__card--dark {
+  background: var(--color-dark);
+  border-color: transparent;
+}
+
+.donate-info__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 16px;
+}
+.donate-info__title--light { color: #fff; }
+
+.donate-info__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.875rem;
+  color: var(--color-text-2);
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+.donate-info__item--light { color: rgba(255,255,255,.7); }
+.donate-info__check { color: var(--color-teal); flex-shrink: 0; margin-top: 1px; }
+.donate-info__check--light { color: var(--color-accent); flex-shrink: 0; margin-top: 1px; }
+
+@media (max-width: 900px) { .donate-layout { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } .blood-type-grid { grid-template-columns: repeat(4, 1fr); } }
